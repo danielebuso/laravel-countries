@@ -1,7 +1,7 @@
 # Laravel Countries
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/danielebuso/laravel-countries.svg?style=flat-square)](https://packagist.org/packages/danielebuso/laravel-countries)
-[![Total Downloads](https://img.shields.io/packagist/dt/danielebuso/laravel-countries.svg?style=flat-square)](https://packagist.org/packages/danielebuso/laravel-countries)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/danielebuso/laravel-countries.svg)](https://packagist.org/packages/danielebuso/laravel-countries)
+[![Total Downloads](https://img.shields.io/packagist/dt/danielebuso/laravel-countries.svg)](https://packagist.org/packages/danielebuso/laravel-countries)
 
 A Laravel package that provides an easy way to query and browse country data with **multilanguage support** using Sushi. Unlike other country packages, this one includes country names in multiple languages, making it perfect for international applications.
 
