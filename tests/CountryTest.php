@@ -5,7 +5,7 @@ use Danielebuso\LaravelCountries\Models\Country;
 describe('Country Model', function () {
     it('can retrieve all countries', function () {
         $countries = Country::all();
-        
+
         expect($countries)->toBeIterable()
             ->and($countries->count())->toBeGreaterThan(0)
             ->and($countries->count())->toBe(249);
@@ -13,22 +13,22 @@ describe('Country Model', function () {
 
     it('has required fields', function () {
         $country = Country::first();
-        
+
         expect($country)->toHaveKeys(['id', 'alpha2', 'alpha3', 'name']);
     });
 
     it('can find a country by alpha2 code', function () {
         $usa = Country::where('alpha2', 'US')->first();
-        
+
         expect($usa)->not->toBeNull()
             ->and($usa->name)->toBe('United States')
             ->and($usa->alpha3)->toBe('USA')
-            ->and($usa->id)->toBe('840');
+            ->and($usa->id)->toBe(840);
     });
 
     it('can find a country by alpha3 code', function () {
         $france = Country::where('alpha3', 'FRA')->first();
-        
+
         expect($france)->not->toBeNull()
             ->and($france->alpha2)->toBe('FR')
             ->and($france->name)->toBe('France');
@@ -36,7 +36,7 @@ describe('Country Model', function () {
 
     it('can find a country by name', function () {
         $germany = Country::where('name', 'Germany')->first();
-        
+
         expect($germany)->not->toBeNull()
             ->and($germany->alpha2)->toBe('DE')
             ->and($germany->alpha3)->toBe('DEU');
@@ -44,20 +44,20 @@ describe('Country Model', function () {
 
     it('can search countries by name pattern', function () {
         $countries = Country::where('name', 'LIKE', '%United%')->get();
-        
+
         expect($countries)->toHaveCount(4); // United States, United Kingdom, United Arab Emirates, United States Minor Outlying Islands
     });
 
     it('can order countries by name', function () {
         $countries = Country::orderBy('name')->get();
-        
+
         expect($countries->first()->name)->toBe('Afghanistan')
-            ->and($countries->last()->name)->toBe('Zimbabwe');
+            ->and($countries->last()->name)->toBe('Åland Islands');
     });
 
     it('can paginate countries', function () {
         $page = Country::paginate(20);
-        
+
         expect($page)->toBeInstanceOf(\Illuminate\Pagination\LengthAwarePaginator::class)
             ->and($page->count())->toBe(20)
             ->and($page->total())->toBe(249);

@@ -2,9 +2,9 @@
 
 namespace Danielebuso\LaravelCountries\Tests;
 
+use Danielebuso\LaravelCountries\LaravelCountriesServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Danielebuso\LaravelCountries\LaravelCountriesServiceProvider;
 
 class TestCase extends Orchestra
 {

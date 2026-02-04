@@ -25,24 +25,18 @@ class Country extends Model
 
     /**
      * Get the country name in the specified language.
-     *
-     * @param  string|null  $locale
-     * @return string
      */
     public function getName(?string $locale = null): string
     {
         $locale = $locale ?? app()->getLocale();
-        
+
         $translations = $this->getTranslations($locale);
-        
-        return $translations[$this->alpha2] ?? $this->name;
+
+        return $translations[$this['alpha2']] ?? $this['name'];
     }
 
     /**
      * Get all translations for countries.
-     *
-     * @param  string  $locale
-     * @return array
      */
     protected function getTranslations(string $locale): array
     {
@@ -56,18 +50,18 @@ class Country extends Model
 
         if (file_exists($translationFile)) {
             static::$translationsCache[$locale] = require $translationFile;
+
             return static::$translationsCache[$locale];
         }
 
         // Cache empty array for non-existent locales to avoid repeated file checks
         static::$translationsCache[$locale] = [];
+
         return [];
     }
 
     /**
      * Get the data for Sushi.
-     *
-     * @return array
      */
     public function getRows(): array
     {

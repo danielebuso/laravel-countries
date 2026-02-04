@@ -14,7 +14,7 @@
     "authors": [
         {
             "name": "Daniele Buso",
-            "email": "author@domain.com",
+            "email": "daniele@kodesire.com",
             "role": "Developer"
         }
     ],
@@ -44,8 +44,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Danielebuso\\LaravelCountries\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/"
+            "Danielebuso\\LaravelCountries\\Tests\\": "tests/"
         }
     },
     "scripts": {

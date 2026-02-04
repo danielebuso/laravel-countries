@@ -50,21 +50,21 @@ describe('Multilanguage Support', function () {
 
     it('falls back to english name when translation is not available', function () {
         $usa = Country::where('alpha2', 'US')->first();
-        
+
         // Request translation for a non-existent language
         $name = $usa->getName('xx');
-        
+
         expect($name)->toBe('United States'); // Should return English name
     });
 
     it('uses app locale when no locale specified', function () {
         $italy = Country::where('alpha2', 'IT')->first();
-        
+
         // Set app locale to Spanish
         app()->setLocale('es');
-        
+
         $name = $italy->getName();
-        
+
         expect($name)->toBe('Italia'); // Should return Spanish name
     });
 

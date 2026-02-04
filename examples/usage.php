@@ -2,11 +2,11 @@
 
 /**
  * Example usage of Laravel Countries package
- * 
+ *
  * This file demonstrates various ways to use the package
  */
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 
 use Danielebuso\LaravelCountries\Models\Country;
 
