@@ -12,12 +12,19 @@ Successfully implemented a Laravel package that provides country data with multi
 - Updated service provider to register the package
 
 ### 2. Country Data ✅
-- Implemented comprehensive dataset with **195 countries**
-- Each country includes:
+- Implemented **complete ISO 3166-1 dataset with 249 entities**
+- Includes all sovereign states, territories, dependencies, and special regions
+- Each entity includes:
   - ISO 3166-1 numeric code (id)
-  - ISO 3166-1 alpha-2 code (e.g., US, IT, FR)
-  - ISO 3166-1 alpha-3 code (e.g., USA, ITA, FRA)
+  - ISO 3166-1 alpha-2 code (e.g., US, IT, FR, PR, HK)
+  - ISO 3166-1 alpha-3 code (e.g., USA, ITA, FRA, PRI, HKG)
   - English name
+- Coverage includes:
+  - 193 UN member states
+  - US territories (Puerto Rico, Guam, Virgin Islands, etc.)
+  - Dependencies (Greenland, Bermuda, French Polynesia, etc.)
+  - Special regions (Hong Kong, Macau, Palestine, Taiwan)
+  - Minor territories and islands
 
 ### 3. Multilanguage Support ✅ (Key Differentiator)
 - Implemented translation system supporting **5 languages**:
@@ -95,11 +102,11 @@ $country->getName();     // Uses app locale
 - `config/laravel-countries.php` - Configuration file
 
 ### Data Files
-- `resources/data/countries.php` - 195 countries dataset
-- `resources/data/translations/es.php` - Spanish translations
-- `resources/data/translations/fr.php` - French translations
-- `resources/data/translations/it.php` - Italian translations
-- `resources/data/translations/de.php` - German translations
+- `resources/data/countries.php` - 249 ISO 3166-1 entities (all countries, territories, dependencies)
+- `resources/data/translations/es.php` - Spanish translations (249 entries)
+- `resources/data/translations/fr.php` - French translations (249 entries)
+- `resources/data/translations/it.php` - Italian translations (249 entries)
+- `resources/data/translations/de.php` - German translations (249 entries)
 
 ### Tests
 - `tests/TestCase.php` - Base test case
@@ -115,10 +122,12 @@ $country->getName();     // Uses app locale
 
 ## Usage Statistics
 
-- **Total Countries**: 195
+- **Total Entities**: 249 (complete ISO 3166-1)
+- **Sovereign States**: 195+
+- **Territories & Dependencies**: 54
 - **Supported Languages**: 5
-- **Translation Coverage**: 100% for all supported languages
-- **Test Cases**: 15+
+- **Translation Coverage**: 100% for all 249 entities
+- **Test Cases**: 17+
 - **Code Coverage**: Comprehensive
 
 ## Ready for Release
