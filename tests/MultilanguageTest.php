@@ -67,4 +67,22 @@ describe('Multilanguage Support', function () {
         
         expect($name)->toBe('Italia'); // Should return Spanish name
     });
+
+    it('returns translated names for territories and dependencies', function () {
+        $territories = [
+            ['alpha2' => 'PR', 'es' => 'Puerto Rico', 'fr' => 'Porto Rico', 'it' => 'Porto Rico', 'de' => 'Puerto Rico'],
+            ['alpha2' => 'HK', 'es' => 'Hong Kong', 'fr' => 'Hong Kong', 'it' => 'Hong Kong', 'de' => 'Hongkong'],
+            ['alpha2' => 'GL', 'es' => 'Groenlandia', 'fr' => 'Groenland', 'it' => 'Groenlandia', 'de' => 'Grönland'],
+            ['alpha2' => 'GU', 'es' => 'Guam', 'fr' => 'Guam', 'it' => 'Guam', 'de' => 'Guam'],
+        ];
+
+        foreach ($territories as $territory) {
+            $country = Country::where('alpha2', $territory['alpha2'])->first();
+            expect($country)->not->toBeNull();
+            expect($country->getName('es'))->toBe($territory['es']);
+            expect($country->getName('fr'))->toBe($territory['fr']);
+            expect($country->getName('it'))->toBe($territory['it']);
+            expect($country->getName('de'))->toBe($territory['de']);
+        }
+    });
 });
