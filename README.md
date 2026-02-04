@@ -9,7 +9,7 @@ This package uses data structure inspired by [stefangabos/world_countries](https
 
 ## Features
 
-- 🌍 Comprehensive list of 195 countries with ISO codes (alpha-2, alpha-3, and numeric)
+- 🌍 Complete ISO 3166-1 list with 249 entities including countries, territories, and dependencies
 - 🌐 **Multilanguage support** - Country names in multiple languages (English, Spanish, French, Italian, and more)
 - 🔍 Query countries using Laravel's Eloquent ORM
 - ⚡ Fast performance with Sushi's in-memory caching
@@ -52,6 +52,18 @@ return [
 ```
 
 ## Usage
+
+### What's Included
+
+This package includes the complete ISO 3166-1 standard with **249 entities**:
+
+- **Sovereign states**: All 193 UN member states plus Vatican City, Palestine, Kosovo, Taiwan
+- **Territories**: Puerto Rico, Guam, U.S. Virgin Islands, American Samoa, etc.
+- **Dependencies**: Greenland, Bermuda, French Polynesia, Faroe Islands, etc.
+- **Special Administrative Regions**: Hong Kong, Macau
+- **Other entities**: Antarctica, Åland Islands, and more
+
+This comprehensive list ensures you have access to all officially recognized ISO codes, not just UN member states.
 
 ### Basic Usage
 

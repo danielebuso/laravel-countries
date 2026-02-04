@@ -8,7 +8,7 @@ describe('Country Model', function () {
         
         expect($countries)->toBeIterable()
             ->and($countries->count())->toBeGreaterThan(0)
-            ->and($countries->count())->toBe(195);
+            ->and($countries->count())->toBe(249);
     });
 
     it('has required fields', function () {
@@ -45,7 +45,7 @@ describe('Country Model', function () {
     it('can search countries by name pattern', function () {
         $countries = Country::where('name', 'LIKE', '%United%')->get();
         
-        expect($countries)->toHaveCount(3); // United States, United Kingdom, United Arab Emirates
+        expect($countries)->toHaveCount(4); // United States, United Kingdom, United Arab Emirates, United States Minor Outlying Islands
     });
 
     it('can order countries by name', function () {
@@ -60,7 +60,7 @@ describe('Country Model', function () {
         
         expect($page)->toBeInstanceOf(\Illuminate\Pagination\LengthAwarePaginator::class)
             ->and($page->count())->toBe(20)
-            ->and($page->total())->toBe(195);
+            ->and($page->total())->toBe(249);
     });
 
     it('returns correct country for specific codes', function () {
@@ -77,6 +77,26 @@ describe('Country Model', function () {
             expect($country)->not->toBeNull()
                 ->and($country->name)->toBe($testCase['name'])
                 ->and($country->alpha3)->toBe($testCase['alpha3']);
+        }
+    });
+
+    it('includes territories and dependencies', function () {
+        $territories = [
+            ['alpha2' => 'PR', 'name' => 'Puerto Rico', 'alpha3' => 'PRI'],
+            ['alpha2' => 'GU', 'name' => 'Guam', 'alpha3' => 'GUM'],
+            ['alpha2' => 'HK', 'name' => 'Hong Kong', 'alpha3' => 'HKG'],
+            ['alpha2' => 'MO', 'name' => 'Macau', 'alpha3' => 'MAC'],
+            ['alpha2' => 'GL', 'name' => 'Greenland', 'alpha3' => 'GRL'],
+            ['alpha2' => 'BM', 'name' => 'Bermuda', 'alpha3' => 'BMU'],
+            ['alpha2' => 'GF', 'name' => 'French Guiana', 'alpha3' => 'GUF'],
+            ['alpha2' => 'AX', 'name' => 'Åland Islands', 'alpha3' => 'ALA'],
+        ];
+
+        foreach ($territories as $territory) {
+            $country = Country::where('alpha2', $territory['alpha2'])->first();
+            expect($country)->not->toBeNull()
+                ->and($country->name)->toBe($territory['name'])
+                ->and($country->alpha3)->toBe($territory['alpha3']);
         }
     });
 });
