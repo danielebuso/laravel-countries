@@ -79,6 +79,7 @@ The package includes built-in support for multiple languages. Country names are 
 - Spanish (es)
 - French (fr)
 - Italian (it)
+- German (de)
 
 ```php
 use Danielebuso\LaravelCountries\Models\Country;
