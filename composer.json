@@ -39,8 +39,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Danielebuso\\LaravelCountries\\": "src/",
-            "Danielebuso\\LaravelCountries\\Database\\Factories\\": "database/factories/"
+            "Danielebuso\\LaravelCountries\\": "src/"
         }
     },
     "autoload-dev": {
