@@ -48,6 +48,38 @@ describe('Multilanguage Support', function () {
         }
     });
 
+    it('returns translations containing apostrophes correctly', function () {
+        $countries = [
+            ['alpha2' => 'CI', 'locale' => 'fr', 'name' => 'Côte d\'Ivoire'],
+            ['alpha2' => 'IO', 'locale' => 'fr', 'name' => 'Territoire britannique de l\'océan Indien'],
+            ['alpha2' => 'CI', 'locale' => 'it', 'name' => 'Costa d\'Avorio'],
+            ['alpha2' => 'IO', 'locale' => 'it', 'name' => 'Territorio britannico dell\'oceano indiano'],
+            ['alpha2' => 'SH', 'locale' => 'it', 'name' => 'Sant\'Elena, Ascensione e Tristan da Cunha'],
+        ];
+
+        foreach ($countries as $data) {
+            $country = Country::where('alpha2', $data['alpha2'])->first();
+            $translatedName = $country->getName($data['locale']);
+            expect($translatedName)->toBe($data['name']);
+        }
+    });
+
+    it('returns country name in croatian', function () {
+        $countries = [
+            ['alpha2' => 'HR', 'hr' => 'Hrvatska'],
+            ['alpha2' => 'DE', 'hr' => 'Njemačka'],
+            ['alpha2' => 'IT', 'hr' => 'Italija'],
+            ['alpha2' => 'US', 'hr' => 'Sjedinjene Američke Države'],
+            ['alpha2' => 'AX', 'hr' => 'Åland Islands'],
+        ];
+
+        foreach ($countries as $data) {
+            $country = Country::where('alpha2', $data['alpha2'])->first();
+            $translatedName = $country->getName('hr');
+            expect($translatedName)->toBe($data['hr']);
+        }
+    });
+
     it('falls back to english name when translation is not available', function () {
         $usa = Country::where('alpha2', 'US')->first();
 

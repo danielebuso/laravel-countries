@@ -10,7 +10,7 @@ This package uses data structure inspired by [stefangabos/world_countries](https
 ## Features
 
 - 🌍 Complete ISO 3166-1 list with 249 entities including countries, territories, and dependencies
-- 🌐 **Multilanguage support** - Country names in multiple languages (English, Spanish, French, Italian, and more)
+- 🌐 **Multilanguage support** - Country names in multiple languages (English, Spanish, French, Italian, German, Croatian, and more)
 - 🔍 Query countries using Laravel's Eloquent ORM
 - ⚡ Fast performance with Sushi's in-memory caching
 - 🎯 Simple and intuitive API
@@ -92,6 +92,7 @@ The package includes built-in support for multiple languages. Country names are 
 - French (fr)
 - Italian (it)
 - German (de)
+- Croatian (hr)
 
 ```php
 use Danielebuso\LaravelCountries\Models\Country;
@@ -107,6 +108,9 @@ $spanishName = $italy->getName('es'); // Returns "Italia"
 
 // Get name in French
 $frenchName = $italy->getName('fr'); // Returns "Italie"
+
+// Get name in Croatian
+$croatianName = $italy->getName('hr'); // Returns "Italija"
 
 // Get name using app's current locale
 app()->setLocale('es');

@@ -63,7 +63,8 @@ echo "   English: {$france->name}\n";
 echo "   Spanish: {$france->getName('es')}\n";
 echo "   French: {$france->getName('fr')}\n";
 echo "   Italian: {$france->getName('it')}\n";
-echo "   German: {$france->getName('de')}\n\n";
+echo "   German: {$france->getName('de')}\n";
+echo "   Croatian: {$france->getName('hr')}\n\n";
 
 // Example 8: Multiple countries with translations
 echo "8. European countries with German names:\n";
