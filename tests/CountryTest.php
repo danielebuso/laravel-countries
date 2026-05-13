@@ -1,6 +1,7 @@
 <?php
 
 use Danielebuso\LaravelCountries\Models\Country;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 describe('Country Model', function () {
     it('can retrieve all countries', function () {
@@ -58,7 +59,7 @@ describe('Country Model', function () {
     it('can paginate countries', function () {
         $page = Country::paginate(20);
 
-        expect($page)->toBeInstanceOf(\Illuminate\Pagination\LengthAwarePaginator::class)
+        expect($page)->toBeInstanceOf(LengthAwarePaginator::class)
             ->and($page->count())->toBe(20)
             ->and($page->total())->toBe(249);
     });
